@@ -2,13 +2,20 @@ import { useInfiniteQuery } from "react-query";
 import { getProductPagination } from "../api/products";
 
 function ListProductInfinite() {
-  const { data, isLoading, isError, error, fetchNextPage, hasNextPage } =
-    useInfiniteQuery({
-      queryKey: ["products", "infinite"],
-      getNextPageParam: (lastPage) => lastPage.nextPage,
-      queryFn: ({ pageParam = 0 }) =>
-        getProductPagination({ limit: 10, skip: pageParam }),
-    });
+  const {
+    data,
+    isLoading,
+    isError,
+    error,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+  } = useInfiniteQuery({
+    queryKey: ["products", "infinite"],
+    getNextPageParam: (lastPage) => lastPage.nextPage,
+    queryFn: ({ pageParam = 0 }) =>
+      getProductPagination({ limit: 10, skip: pageParam }),
+  });
 
   if (isLoading) return <h1>loading...</h1>;
   if (isError) return <pre>{JSON.stringify(error)}</pre>;
@@ -36,7 +43,7 @@ function ListProductInfinite() {
           onClick={() => fetchNextPage()}
           disabled={!hasNextPage}
         >
-          Load More
+          {isFetchingNextPage ? "Loading..." : "Load More"}
         </button>
       </div>
     </>
