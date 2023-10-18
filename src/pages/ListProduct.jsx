@@ -42,7 +42,7 @@ function ListProduct() {
     return <pre>{JSON.stringify(productsQuery.error)}</pre>;
   return (
     <>
-      <h1 className="text-3xl font-semibold">React Query</h1>
+      <h1 className="text-3xl font-semibold">List Product</h1>
       <table className="table-auto">
         <thead>
           <tr>

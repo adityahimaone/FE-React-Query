@@ -17,7 +17,7 @@ function ListProductPagination() {
   if (isError) return <pre>{JSON.stringify(error)}</pre>;
   return (
     <>
-      <h1 className="text-3xl font-semibold">React Query</h1>
+      <h1 className="text-3xl font-semibold">List Product Pagination</h1>
       <table className="table-auto">
         <thead>
           <tr>

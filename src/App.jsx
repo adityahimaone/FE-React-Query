@@ -4,6 +4,7 @@ import ListProduct from "./pages/ListProduct";
 import CreateProduct from "./pages/CreateProduct";
 import Product from "./pages/Product";
 import ListProductPagination from "./pages/ListProductPagination";
+import ListProductInfinite from "./pages/ListProductInfinite";
 
 function App() {
   const [currentPage, setCurrentPage] = useState(<ListProduct />);
@@ -39,6 +40,13 @@ function App() {
           onClick={() => setCurrentPage(<ListProductPagination />)}
         >
           Pagination Product
+        </button>
+        <button
+          className="btn-primary"
+          type="button"
+          onClick={() => setCurrentPage(<ListProductInfinite />)}
+        >
+          Infinite Product
         </button>
       </div>
       {currentPage}
