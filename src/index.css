@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 .btn-primary {
-  @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:cursor-not-allowed;
+  @apply px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 disabled:cursor-not-allowed;
 }
 
 .btn-pagination {
-  @apply bg-blue-300 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:cursor-not-allowed;
+  @apply px-4 py-2 font-bold text-white bg-blue-300 rounded hover:bg-blue-700 disabled:cursor-not-allowed;
 }
 
 .form-input {
-  @apply shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight;
+  @apply w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none;
 }
 
 :root {

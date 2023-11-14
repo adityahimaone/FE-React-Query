@@ -11,7 +11,7 @@ function Product({ id, successAddProduct = false }) {
   return (
     <div>
       {successAddProduct && (
-        <span className="rounded-sm bg-green-500 p-1">
+        <span className="p-1 bg-green-500 rounded-sm">
           Product successfully added 🎉
         </span>
       )}

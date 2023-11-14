@@ -5,12 +5,13 @@ import CreateProduct from "./pages/CreateProduct";
 import Product from "./pages/Product";
 import ListProductPagination from "./pages/ListProductPagination";
 import ListProductInfinite from "./pages/ListProductInfinite";
+import ListProductInfiniteObserver from "./pages/ListProductInfiniteObserver";
 
 function App() {
   const [currentPage, setCurrentPage] = useState(<ListProduct />);
   return (
     <div className="m-5">
-      <div className="space-x-2 mb-3">
+      <div className="mb-3 space-x-2">
         <button
           className="btn-primary"
           type="button"
@@ -47,6 +48,13 @@ function App() {
           onClick={() => setCurrentPage(<ListProductInfinite />)}
         >
           Infinite Product
+        </button>
+        <button
+          className="btn-primary"
+          type="button"
+          onClick={() => setCurrentPage(<ListProductInfiniteObserver />)}
+        >
+          Infinite Product With Observer
         </button>
       </div>
       {currentPage}

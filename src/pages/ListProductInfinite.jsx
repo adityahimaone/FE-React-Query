@@ -1,5 +1,6 @@
 import { useInfiniteQuery } from "react-query";
 import { getProductPagination } from "../api/products";
+import CardSkeleton from "../components/CardSkeleton";
 
 function ListProductInfinite() {
   const {
@@ -17,11 +18,15 @@ function ListProductInfinite() {
       getProductPagination({ limit: 10, skip: pageParam }),
   });
 
-  if (isLoading) return <h1>loading...</h1>;
+  var skeleton = Array.from({ length: 10 }, (_, i) => <CardSkeleton key={i} />);
+
+  if (isLoading)
+    return <div className="grid grid-cols-5 gap-4">{skeleton}</div>;
   if (isError) return <pre>{JSON.stringify(error)}</pre>;
+
   return (
     <>
-      <h1 className="text-3xl font-semibold mb-3">List Product Infinite</h1>
+      <h1 className="mb-3 text-3xl font-semibold">List Product Infinite</h1>
       {data.pages.map((group, i) => (
         <div key={i} className="mb-4">
           <div className="grid grid-cols-5 gap-4">
@@ -37,6 +42,9 @@ function ListProductInfinite() {
           </div>
         </div>
       ))}
+      {isFetchingNextPage && (
+        <div className="grid grid-cols-5 gap-4">{skeleton}</div>
+      )}
       <div className="flex justify-center mt-3">
         <button
           className="btn-pagination"
